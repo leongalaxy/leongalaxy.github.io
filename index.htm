@@ -239,6 +239,12 @@
             overflow: hidden;
         }
         
+        .product-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
         .product-image:after {
             content: '';
             position: absolute;
@@ -246,7 +252,7 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: linear-gradient(to bottom, rgba(45, 90, 39, 0.2), rgba(45, 90, 39, 0.5));
+            background: linear-gradient(to bottom, rgba(45, 90, 39, 0.1), rgba(45, 90, 39, 0.3));
         }
         
         .product-content {
@@ -265,6 +271,25 @@
             margin-bottom: 20px;
             font-size: 0.95rem;
             line-height: 1.5;
+        }
+        
+        .product-features {
+            list-style-type: none;
+            margin-bottom: 20px;
+        }
+        
+        .product-features li {
+            margin-bottom: 8px;
+            display: flex;
+            align-items: flex-start;
+            font-size: 0.9rem;
+        }
+        
+        .product-features i {
+            color: var(--leaf-green);
+            margin-right: 8px;
+            margin-top: 3px;
+            flex-shrink: 0;
         }
         
         .product-price {
@@ -663,17 +688,27 @@
         <p class="section-subtitle">We offer a wide range of sustainable products that meet high environmental standards while providing excellent value for our customers.</p>
         
         <div class="products-container">
-            <!-- Product 1 -->
+            <!-- Product 1: 毛毡种植桶 (Felt Planting Pot) -->
             <div class="product-card">
-                <div class="product-image" style="background-color: #7aa86a;">
-                    <i class="fas fa-seedling" style="font-size: 3rem; z-index: 2; position: relative;"></i>
+                <div class="product-image">
+                    <img src="http://cbu01.alicdn.com/img/ibank/O1CN01B3zip72MXP4wcRYeK_!!2969469837-0-cib.jpg" alt="Felt Planting Pot - Eco-friendly fabric plant pots for indoor and outdoor gardening">
                 </div>
                 <div class="product-content">
-                    <h3 class="product-title">Bamboo Tableware Set</h3>
-                    <p class="product-description">Sustainable bamboo tableware, biodegradable and eco-friendly. Perfect replacement for plastic utensils.</p>
-                    <div class="product-price">$2.45</div>
-                    <div class="min-order"><i class="fas fa-box"></i> Min. Order: 50 sets</div>
-                    <a href="mailto:alice@senlin.us.ci?subject=Inquiry about Bamboo Tableware Set" class="product-button">Request Quote</a>
+                    <h3 class="product-title">毛毡种植桶 (Felt Planting Pot)</h3>
+                    <p class="product-description">Eco-friendly fabric plant pots made from high-quality felt material, perfect for indoor and outdoor gardening. These breathable containers promote healthy root growth through air pruning.</p>
+                    
+                    <ul class="product-features">
+                        <li><i class="fas fa-check"></i> <strong>Breathable Fabric:</strong> Allows air to reach roots, preventing root circling</li>
+                        <li><i class="fas fa-check"></i> <strong>Promotes Healthier Roots:</strong> Air-pruning encourages denser root systems</li>
+                        <li><i class="fas fa-check"></i> <strong>Reusable & Durable:</strong> Can be reused for multiple planting seasons</li>
+                        <li><i class="fas fa-check"></i> <strong>Foldable Storage:</strong> Easy to store when not in use</li>
+                        <li><i class="fas fa-check"></i> <strong>Excellent Drainage:</strong> Prevents waterlogging and root rot</li>
+                        <li><i class="fas fa-check"></i> <strong>Various Sizes:</strong> Available in multiple dimensions for different plants</li>
+                    </ul>
+                    
+                    <div class="product-price">$1.25 - $4.80</div>
+                    <div class="min-order"><i class="fas fa-box"></i> Min. Order: 100 pieces (mixed sizes available)</div>
+                    <a href="mailto:alice@senlin.us.ci?subject=Inquiry about Felt Planting Pots" class="product-button">Request Quote</a>
                 </div>
             </div>
             
@@ -906,6 +941,15 @@
                     });
                 }
             });
+            
+            // Handle image loading errors
+            const feltPotImage = document.querySelector('.product-image img');
+            if(feltPotImage) {
+                feltPotImage.addEventListener('error', function() {
+                    this.src = 'data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="300" height="200" viewBox="0 0 300 200"><rect width="300" height="200" fill="%234a7c59"/><text x="150" y="100" font-family="Arial" font-size="20" fill="white" text-anchor="middle">Felt Planting Pot</text></svg>';
+                    this.alt = 'Felt Planting Pot - Image not available';
+                });
+            }
         });
     </script>
 </body>
